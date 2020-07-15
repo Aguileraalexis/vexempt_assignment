@@ -3,7 +3,7 @@
 <fullyQualifiedTypeName name="com.vexempt.books.logic.Book"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="com.vexempt.particles.SingleDirectionChamber"/>
-<fullyQualifiedTypeName name="com.vexempt.particles.Chamber"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.vexempt.particles.Chamber"/>
 </qualifiedTypeNameHistroy>
