@@ -1,0 +1,5 @@
+package com.vexempt.books.model;
+
+public class Quote {
+
+}

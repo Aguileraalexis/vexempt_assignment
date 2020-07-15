@@ -1,0 +1,6 @@
+package com.vexempt.books;
+
+public enum QuoteType {
+	BID, 
+	OFFER
+}

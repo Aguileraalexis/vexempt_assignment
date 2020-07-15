@@ -1,0 +1,80 @@
+package com.vexempt.books.model;
+
+public class Quote {
+	
+	private String quoteId;
+	private String quoteType;
+	private String operationType;
+	private double price;
+	private double volume;
+
+	private static final byte TUPLE_LENGTH = 5;
+	
+	public Quote(String quoteStr) {
+
+		//validating tuple structure
+		if (quoteStr == null || quoteStr.trim().isEmpty())
+			throw new IllegalArgumentException("Empty Quote");
+		
+		String[] values = quoteStr.split("/");
+		if (values.length != TUPLE_LENGTH)
+			throw new IllegalArgumentException("Insufficient Tuple Values");
+
+		for (String value : values)
+			if (value.trim().isEmpty())
+				throw new IllegalArgumentException("All the tuple values are mandatory");
+		
+		// saving data
+		this.quoteId = values[0];
+		this.quoteType = values[1].substring(0, 1); //ignoring subsequent chars
+		this.operationType = values[2].substring(0, 1); //ignoring subsequent chars
+		this.price = Double.valueOf(values[3]);
+		this.volume = Double.valueOf(values[4]);
+		
+	}
+
+	public String getQuoteId() {
+		return quoteId;
+	}
+
+	public void setQuoteId(String quoteId) {
+		this.quoteId = quoteId;
+	}
+
+	public String getQuoteType() {
+		return quoteType;
+	}
+
+	public void setQuoteType(String quoteType) {
+		this.quoteType = quoteType;
+	}
+
+	public String getOperationType() {
+		return operationType;
+	}
+
+	public void setOperationType(String operationType) {
+		this.operationType = operationType;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getVolume() {
+		return volume;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
+	}
+
+	public static byte getTupleLength() {
+		return TUPLE_LENGTH;
+	}
+	
+}

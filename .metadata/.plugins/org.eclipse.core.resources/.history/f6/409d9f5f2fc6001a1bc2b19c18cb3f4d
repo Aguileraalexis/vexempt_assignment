@@ -1,0 +1,12 @@
+package com.vexempt.books;
+
+public enum OperationType {
+	NEW,
+	UPDATE,
+	DELETE;
+	
+	public OperationType fromChar() {
+		switch ()
+	}
+	
+}

@@ -1,0 +1,46 @@
+package com.vexempt.books.model;
+
+public class Quote {
+	
+	private String quoteId;
+	private double price;
+	private double volume;
+
+	public Quote(String quoteId, double price, double volume) {
+
+		// saving data
+		this.quoteId = quoteId;
+		this.price = price;
+		this.volume = volume;
+		
+	}
+
+	public String getQuoteId() {
+		return quoteId;
+	}
+
+	public void setQuoteId(String quoteId) {
+		this.quoteId = quoteId;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getVolume() {
+		return volume;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
+	}
+
+	public Object pack() {
+		return this.quoteId + "/" + this.getPrice() + "/" + this.getVolume();
+	}
+	
+}

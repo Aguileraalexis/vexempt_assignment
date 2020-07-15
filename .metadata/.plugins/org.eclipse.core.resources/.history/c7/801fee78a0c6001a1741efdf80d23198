@@ -1,0 +1,60 @@
+package com.vexempt.books.utils;
+
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.vexempt.books.model.Quote;
+
+public class BinaryTree<T> {
+
+	private Comparator<T> comparator;
+	private BinaryTree<T> left;
+	private BinaryTree<T> right;
+	private BinaryTree<T> parent;
+	private T value;
+	
+	public BinaryTree(Comparator<T> comparator, BinaryTree<T> parent) {
+		this.comparator = comparator;
+		this.parent = parent;
+	}
+	
+	public void insert(T value) {
+
+		if (value == null) {
+			this.value = value;
+		} else if (comparator.compare(this.value, value) > 1) {
+			if (right == null)
+				right = new BinaryTree<T>(comparator, this);
+			
+			right.insert(value);
+		} else {
+				if (left == null)
+					left = new BinaryTree<T>(comparator, this);
+				
+				left.insert(value);
+		}
+
+	}
+
+	public List<T> getOrdered() {
+		List<T> result = new LinkedList<T>();
+		
+		if (left != null)
+			result.addAll(left.getOrdered());
+		
+		if (value != null)
+			result.add(value);
+		
+		if (right != null)
+			result.addAll(right.getOrdered());
+					
+		return result;
+	}
+
+	public void delete(Quote quote) {
+		TODO Auto-generated method stub
+		
+	}
+	
+}

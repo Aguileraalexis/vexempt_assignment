@@ -1,0 +1,13 @@
+package com.vexempt.particles;
+
+public class Chamber {
+	
+	private SingleDirectionChamber left = new SingleDirectionChamber();
+	private SingleDirectionChamber right = new SingleDirectionChamber();
+	
+	public void init(String data) {
+		left.init(data, Direction.LEFT);
+		right.init(data, Direction.RIGHT);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.vexempt.particles;
+
+public class Animate {
+	
+	private Chamber chamber = new Chamber();
+	public void animate(int speed, String init) {
+		chamber.init(data);
+	}
+
+}

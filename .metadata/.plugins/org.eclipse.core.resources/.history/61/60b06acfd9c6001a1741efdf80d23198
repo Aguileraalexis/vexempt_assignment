@@ -1,0 +1,29 @@
+package com.vexempt.particles;
+
+public class Chamber {
+	
+	private SingleDirectionChamber left = new SingleDirectionChamber();
+	private SingleDirectionChamber right = new SingleDirectionChamber();
+	private int dataLength = 0;
+	
+	public void init(String data) {
+		this.dataLength = data.length();
+		//String debugData = "..............."; // TODO
+		left.init(data, Direction.LEFT);
+		right.init(data, Direction.RIGHT);
+	}
+
+	public String getFrame() {
+		StringBuilder currentFrame = new StringBuilder();
+		for (int i = 0; i < dataLength; i++) {
+			currentFrame.append(left.cellHasValue(i) || right.cellHasValue(i) ? "X" : ".");
+		}
+		return currentFrame.toString();
+	}
+
+	public void shift(int speed) {
+		left.shift(speed);
+		right.shift(speed);
+	}
+
+}

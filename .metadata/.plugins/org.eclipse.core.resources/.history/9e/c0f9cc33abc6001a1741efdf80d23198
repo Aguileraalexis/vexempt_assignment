@@ -1,0 +1,41 @@
+package com.vexempt.books.logic;
+
+import com.vexempt.books.model.Quote;
+import java.util.Comparator;
+
+public class QuoteComparator implements Comparator<Quote> {
+
+	public int compare(Quote existing, Quote inserted) {
+		
+		if (existing == null)
+			return 1;
+
+		if (existing.getQuoteType().equals("B")) { //Bid logic
+
+			if (existing.getPrice() == inserted.getPrice()) {
+				if (existing.getVolume() == inserted.getVolume()) {
+					return -1;
+				}
+				
+				return existing.getVolume() > inserted.getVolume() ? -1 : 1;
+			}
+			
+			return existing.getPrice() > inserted.getPrice() ? -1 : 1;
+			
+		} else { // Offer Logic
+
+			if (existing.getPrice() == inserted.getPrice()) {
+				if (existing.getVolume() == inserted.getVolume()) {
+					return -1;
+				}
+				
+				return existing.getVolume() > inserted.getVolume() ? -1 : 1;
+			}
+			
+			return existing.getPrice() < inserted.getPrice() ? -1 : 1;
+			
+		}
+			
+	}
+
+}

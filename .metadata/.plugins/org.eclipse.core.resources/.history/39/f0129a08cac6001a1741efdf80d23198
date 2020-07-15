@@ -1,0 +1,14 @@
+package com.vexempt.particles;
+
+import java.util.List;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Animate animate = new Animate();
+		List<String> result = animate.animate("..R....", 2 );
+
+	}
+
+}

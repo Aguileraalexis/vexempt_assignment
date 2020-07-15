@@ -1,0 +1,57 @@
+package com.vexempt.books.logic;
+
+import java.util.List;
+
+import com.vexempt.books.model.Quote;
+import com.vexempt.books.utils.BinaryTree;
+
+public class Book {
+	
+	private BinaryTree<Quote> bids = new BinaryTree<Quote>(new QuoteComparator());
+	private BinaryTree<Quote> offers = new BinaryTree<Quote>(new QuoteComparator());
+	private static final byte TUPLE_LENGTH = 5;
+	
+	public void addQuote(String quoteStr) {
+
+		//validating tuple structure
+		if (quoteStr == null || quoteStr.trim().isEmpty())
+			throw new IllegalArgumentException("Empty Quote");
+		
+		String[] values = quoteStr.split("/");
+		if (values.length != TUPLE_LENGTH)
+			throw new IllegalArgumentException("Insufficient Tuple Values");
+
+		for (String value : values)
+			if (value.trim().isEmpty())
+				throw new IllegalArgumentException("All the tuple values are mandatory");
+		
+		String quoteId = values[0];
+		String quoteType = values[1].substring(0, 1);
+		String operatorType = values[2].substring(0, 1);
+		Double price = Double.valueOf(values[3]);
+		Double volume = Double.valueOf(values[4]);
+
+		Quote quote = new Quote(value);
+		if (quote.getQuoteType().equals("B"))
+			bids.insert(quote);
+		else
+			offers.insert(quote);
+	}
+
+	public String dump() {
+		List<Quote> orderedBids = bids.getOrdered();
+		List<Quote> orderedOffers = offers.getOrdered();
+
+		StringBuilder builder = new StringBuilder();
+		builder.append("OFFER\n");
+		for (Quote quote : orderedOffers)
+			builder.append(quote.pack() + "\n");
+		
+		builder.append("\nBIDS\n");
+		for (Quote quote : orderedBids)
+			builder.append(quote.pack() + "\n");
+		
+		return builder.toString();
+	}
+
+}

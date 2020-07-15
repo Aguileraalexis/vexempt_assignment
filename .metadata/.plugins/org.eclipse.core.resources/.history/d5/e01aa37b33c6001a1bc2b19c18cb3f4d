@@ -1,0 +1,11 @@
+package com.vexempt.books;
+
+import com.vexempt.books.model.Quote;
+
+public class Book {
+
+	public void addQuote(String quoteStr) {
+		Quote quote = new Quote(quoteStr);
+	}
+	
+}

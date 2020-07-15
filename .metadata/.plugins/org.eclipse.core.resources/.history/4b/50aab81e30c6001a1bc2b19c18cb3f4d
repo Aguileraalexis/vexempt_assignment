@@ -1,0 +1,12 @@
+package com.vexempt.books.model;
+
+public class Quote {
+	
+	private String quoteId;
+	private String QuoteType;
+	private String OperationType;
+	private double price;
+	private double volume;
+	
+	
+}

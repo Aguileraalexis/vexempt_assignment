@@ -1,0 +1,18 @@
+package com.vexempt.particles;
+
+public class Animate {
+	
+	public void animate(int speed, String init) {
+		Chamber chamber = new Chamber();
+		chamber.init(init);
+		
+		do {
+			String currentFrame = chamber.getFrame();
+		} while (!flushed(currentFrame))
+	}
+	
+	private boolean flushed(String frame) {
+		return !frame.contains("X");
+	}
+
+}

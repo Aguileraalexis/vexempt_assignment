@@ -1,0 +1,19 @@
+package com.vexempt.books.logic;
+
+import com.vexempt.books.model.Quote;
+import com.vexempt.books.utils.BinaryTree;
+
+public class Book {
+	
+	private BinaryTree<Quote> bids = new BinaryTree<Quote>(new QuoteComparator());
+	private BinaryTree<Quote> offers = new BinaryTree<Quote>(new QuoteComparator());
+
+	public void addQuote(String quoteStr) {
+		Quote quote = new Quote(quoteStr);
+		if (quote.getQuoteType().equals("B"))
+			bids.insert(quote);
+		else
+			offers.insert(quote);
+	}
+	
+}

@@ -1,0 +1,13 @@
+package com.vexempt.books.logic;
+
+import com.vexempt.books.model.Quote;
+
+public class Book {
+	
+	private BinaryTree<Quote> bids = Binary
+
+	public void addQuote(String quoteStr) {
+		Quote quote = new Quote(quoteStr);
+	}
+	
+}

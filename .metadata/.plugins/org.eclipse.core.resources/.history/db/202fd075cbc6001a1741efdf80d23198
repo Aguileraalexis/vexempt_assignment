@@ -1,0 +1,29 @@
+package com.vexempt.particles;
+
+import java.util.List;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Animation animation = new Animation();
+		String data = "";
+		int speed = 0;
+
+		data = "..R....";
+		speed = 2;
+		output(animation.animate(data, 2), data);
+
+		data = "RR..LRL";
+		speed = 3;
+		output(animation.animate(data, 2), data);
+
+	}
+
+	private static void output(List<String> result, String data) {
+		System.out.println("\nDATA: " + data + "\n");
+		result.forEach(item -> System.out.println(item));
+		System.out.println("\n");
+	}
+	
+}

@@ -1,0 +1,8 @@
+package com.vexempt.particles;
+
+public enum Direction {
+
+	LEFT,
+	RIGHT
+	
+}

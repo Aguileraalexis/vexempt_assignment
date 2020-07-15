@@ -1,0 +1,6 @@
+package com.vexempt.books.logic;
+
+@SuppressWarnings("serial")
+public class QuoteValidationException extends Exception {
+
+}

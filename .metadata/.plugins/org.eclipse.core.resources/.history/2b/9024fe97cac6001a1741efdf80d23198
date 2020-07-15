@@ -1,0 +1,19 @@
+package com.vexempt.particles;
+
+import java.util.List;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Animation animate = new Animation();
+		
+		// "RR..LRL", 3 
+		output(animate.animate("..R....", 2 ));
+	}
+
+	private static void output(List<String> result) {
+		result.forEach(item -> System.out.println(item));
+	}
+	
+}
